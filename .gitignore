@@ -45,3 +45,6 @@ build/
 # Docker: no ignorar docker-compose.yml (porque queremos subirlo)
 # Ignorar posibles carpetas con datos persistentes
 pgdata/
+[internal]/
+docker/
+literalura.backup
