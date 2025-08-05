@@ -1,0 +1,47 @@
+# Carpetas de build
+target/
+build/
+
+# Permitir los wrapper de Maven
+!.mvn/wrapper/maven-wrapper.jar
+
+# Excluir target/build dentro de src (para evitar ignorar código fuente)
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Archivos y carpetas de IntelliJ IDEA
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+# Archivos y carpetas de Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# Archivos y carpetas de NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Archivos y carpetas de VS Code
+.vscode/
+
+# Mac OS
+.DS_Store
+
+# Docker: no ignorar docker-compose.yml (porque queremos subirlo)
+# Ignorar posibles carpetas con datos persistentes
+pgdata/
