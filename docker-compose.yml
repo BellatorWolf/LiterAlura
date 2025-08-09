@@ -1,18 +1,17 @@
 version: "3.9"
 
 services:
-  # Servicio de base de datos PostgreSQL
   liter-postgre:
     image: postgres:16-alpine
     container_name: liter-postgre
     environment:
-      POSTGRES_DB: liter
-      POSTGRES_USER: bibliotecario
-      POSTGRES_PASSWORD: liter41ur4
+      POSTGRES_PASSWORD: adminpass  # Contraseña para el usuario postgres
     ports:
       - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d  # Monta el script de inicialización
 
-  # Servicio de tu aplicación Java
   liter-app:
     build:
       context: .
@@ -24,8 +23,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://liter-postgre:5432/liter
       SPRING_DATASOURCE_USERNAME: bibliotecario
       SPRING_DATASOURCE_PASSWORD: liter41ur4
-    stdin_open: true     # Para que acepte entrada interactiva (Scanner)
-    tty: true            # Asigna terminal
+    stdin_open: true
+    tty: true
 
 volumes:
   pgdata:
