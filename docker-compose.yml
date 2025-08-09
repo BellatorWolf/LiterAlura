@@ -6,6 +6,7 @@ services:
     container_name: liter-postgre
     environment:
       POSTGRES_PASSWORD: adminpass  # Contraseña para el usuario postgres
+      POSTGRES_DB: liter
     ports:
       - "5432:5432"
     volumes:
